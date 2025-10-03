@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "cf63ca37-fb78-47ee-86e3-fb9b9f61c2ac",
+    "name": "Test",
+    "description": "",
+    "createdAt": "2025-09-10T20:06:40.957Z",
+    "updatedAt": "2025-09-10T20:06:40.957Z",
+    "completionStatus": {
+      "medFullyInsured": false
+    },
+    "selectedTabs": [
+      "medFullyInsured"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "Test",
+      "effectiveDate": "2025-09-12",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

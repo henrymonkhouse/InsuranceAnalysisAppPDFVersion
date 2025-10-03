@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "id": "f8bf766f-e605-4f3f-8a10-49c27974d026",
+    "description": "",
+    "createdAt": "2025-08-26T21:10:58.052Z",
+    "updatedAt": "2025-08-26T21:11:26.131Z",
+    "completionStatus": {
+      "medUHC": false,
+      "medUHC2": false,
+      "dental": false,
+      "vision": false,
+      "gtl": false,
+      "volLife": false,
+      "vltd": false,
+      "cobra": false
+    },
+    "selectedTabs": [
+      "medUHC",
+      "medUHC2",
+      "dental",
+      "vision",
+      "gtl",
+      "volLife",
+      "vltd",
+      "cobra"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "gb",
+      "effectiveDate": "2025-08-14",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

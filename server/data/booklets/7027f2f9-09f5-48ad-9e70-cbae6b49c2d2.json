@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "id": "7027f2f9-09f5-48ad-9e70-cbae6b49c2d2",
+    "description": "",
+    "createdAt": "2025-08-05T21:42:53.042Z",
+    "updatedAt": "2025-08-05T21:42:55.017Z",
+    "completionStatus": {
+      "medUHC": false
+    },
+    "selectedTabs": [
+      "medUHC"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "T",
+      "effectiveDate": "2025-08-07",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

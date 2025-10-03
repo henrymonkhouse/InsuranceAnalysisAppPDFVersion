@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "id": "cfd120f0-ef92-4f30-92fa-3c3ea39d1d8f",
+    "name": "VLTD",
+    "description": "",
+    "createdAt": "2025-08-06T22:18:59.890Z",
+    "updatedAt": "2025-08-06T22:18:59.890Z",
+    "completionStatus": {
+      "medFullyInsured": false,
+      "dental": false,
+      "vision": false,
+      "gtl": false,
+      "volLife": false,
+      "vltd": false,
+      "cobra": false
+    },
+    "selectedTabs": [
+      "medFullyInsured",
+      "dental",
+      "vision",
+      "gtl",
+      "volLife",
+      "vltd",
+      "cobra"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "t",
+      "effectiveDate": "2025-08-08",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "id": "c1f41561-b209-43d2-8ce8-0b3ede9fbd0c",
+    "name": "t",
+    "description": "",
+    "createdAt": "2025-08-06T18:51:03.559Z",
+    "updatedAt": "2025-08-06T18:51:03.559Z",
+    "completionStatus": {
+      "medFullyInsured": false,
+      "dental": false
+    },
+    "selectedTabs": [
+      "medFullyInsured",
+      "dental"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "t",
+      "effectiveDate": "2025-08-28",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

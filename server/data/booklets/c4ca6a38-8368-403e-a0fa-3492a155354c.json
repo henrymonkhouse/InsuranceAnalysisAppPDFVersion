@@ -1,0 +1,114 @@
+{
+  "metadata": {
+    "id": "c4ca6a38-8368-403e-a0fa-3492a155354c",
+    "description": "",
+    "createdAt": "2025-08-06T15:39:16.644Z",
+    "updatedAt": "2025-08-06T15:39:40.706Z",
+    "completionStatus": {
+      "medUHC": true
+    },
+    "selectedTabs": [
+      "medUHC"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "T",
+      "effectiveDate": "2025-08-21",
+      "companyLogo": null
+    },
+    "tabs": {
+      "medUHC": {
+        "planDetails": {
+          "organizationName": "",
+          "effectiveDate": "",
+          "plans": {},
+          "networks": {},
+          "overviews": {}
+        },
+        "deductibles": {
+          "individual": {},
+          "family": {}
+        },
+        "outOfPocket": {
+          "individual": {},
+          "family": {}
+        },
+        "coinsuranceValues": {
+          "regular": {},
+          "routine": {}
+        },
+        "primaryCare": {
+          "amount": {},
+          "text": {}
+        },
+        "specialist": {
+          "amount": {},
+          "type": {}
+        },
+        "inpatientHospitalization": {
+          "amount": {},
+          "type": {}
+        },
+        "outpatientSurgery": {
+          "amount": {},
+          "type": {}
+        },
+        "emergencyRoom": {
+          "amount": {},
+          "type": {}
+        },
+        "urgentCare": {
+          "amount": {},
+          "type": {}
+        },
+        "retailPrescription": {
+          "tier1": {},
+          "tier2": {},
+          "tier3": {},
+          "tier4": {}
+        },
+        "financialSummary": {
+          "employeeCount": "",
+          "employeeSpouseCount": "",
+          "employeeChildrenCount": "",
+          "familyCount": "",
+          "employeeRate": {},
+          "employeeSpouseRate": {},
+          "employeeChildrenRate": {},
+          "familyRate": {}
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "annualPremiums": {
+            "current": 0,
+            "renewal": 0
+          },
+          "dollarDifferences": {
+            "renewal": 0
+          },
+          "percentDifferences": {
+            "renewal": 0
+          }
+        },
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ]
+      }
+    }
+  }
+}

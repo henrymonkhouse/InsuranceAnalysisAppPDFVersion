@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "e5a3686f-4eb9-4a93-b62e-9df682318103",
+    "name": "5",
+    "description": "",
+    "createdAt": "2025-08-06T21:33:30.887Z",
+    "updatedAt": "2025-08-06T21:33:30.887Z",
+    "completionStatus": {
+      "vision": false
+    },
+    "selectedTabs": [
+      "vision"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "55",
+      "effectiveDate": "2025-08-08",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

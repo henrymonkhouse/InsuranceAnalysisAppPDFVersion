@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "id": "630687e4-4f79-436b-8bd1-940970cb4488",
+    "name": "Test",
+    "description": "",
+    "createdAt": "2025-08-05T20:52:53.047Z",
+    "updatedAt": "2025-08-05T20:52:53.047Z",
+    "completionStatus": {
+      "medFullyInsured": false,
+      "dental": false,
+      "vision": false,
+      "gtl": false,
+      "volLife": false,
+      "vltd": false,
+      "cobra": false
+    },
+    "selectedTabs": [
+      "medFullyInsured",
+      "dental",
+      "vision",
+      "gtl",
+      "volLife",
+      "vltd",
+      "cobra"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "Testing",
+      "effectiveDate": "2025-08-03",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

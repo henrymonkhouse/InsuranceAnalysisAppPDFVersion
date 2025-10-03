@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "id": "17f94664-24c5-4489-88fa-588554e0c695",
+    "description": "",
+    "createdAt": "2025-08-28T20:53:20.329Z",
+    "updatedAt": "2025-08-28T20:53:58.960Z",
+    "completionStatus": {
+      "medUHC": true
+    },
+    "selectedTabs": [
+      "medUHC"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "test",
+      "effectiveDate": "2025-08-09",
+      "companyLogo": null
+    },
+    "tabs": {
+      "medUHC": {
+        "planDetails": {
+          "organizationName": "",
+          "effectiveDate": "",
+          "plans": {},
+          "networks": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "overviews": {
+            "current": "5",
+            "renewal": "5"
+          }
+        },
+        "deductibles": {
+          "individual": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "family": {
+            "current": "5",
+            "renewal": "5"
+          }
+        },
+        "outOfPocket": {
+          "individual": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "family": {
+            "current": "5",
+            "renewal": "5"
+          }
+        },
+        "coinsuranceValues": {
+          "regular": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "routine": {
+            "current": "5",
+            "renewal": "5"
+          }
+        },
+        "primaryCare": {
+          "amount": {},
+          "text": {
+            "current": "5",
+            "renewal": "5"
+          }
+        },
+        "specialist": {
+          "amount": {
+            "current": "15",
+            "renewal": "5"
+          },
+          "type": {
+            "current": "Deductible"
+          }
+        },
+        "inpatientHospitalization": {
+          "amount": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "type": {
+            "current": "Deductible",
+            "renewal": "Deductible"
+          }
+        },
+        "outpatientSurgery": {
+          "amount": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "type": {
+            "current": "Copay",
+            "renewal": "Copay"
+          }
+        },
+        "emergencyRoom": {
+          "amount": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "type": {
+            "current": "Copay + Deductible",
+            "renewal": "Copay"
+          }
+        },
+        "urgentCare": {
+          "amount": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "type": {
+            "current": "Deductible",
+            "renewal": "Deductible"
+          }
+        },
+        "retailPrescription": {
+          "tier1": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "tier2": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "tier3": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "tier4": {
+            "current": "5",
+            "renewal": "5"
+          }
+        },
+        "financialSummary": {
+          "employeeCount": "5",
+          "employeeSpouseCount": "5",
+          "employeeChildrenCount": "5",
+          "familyCount": "5",
+          "employeeRate": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "employeeSpouseRate": {
+            "current": "5",
+            "renewal": "5"
+          },
+          "employeeChildrenRate": {
+            "current": "5",
+            "renewal": "55"
+          },
+          "familyRate": {
+            "current": "5",
+            "renewal": "5"
+          }
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 100,
+            "renewal": 350
+          },
+          "annualPremiums": {
+            "current": 1200,
+            "renewal": 4200
+          },
+          "dollarDifferences": {
+            "renewal": 3000
+          },
+          "percentDifferences": {
+            "renewal": 250
+          }
+        },
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ]
+      }
+    }
+  }
+}

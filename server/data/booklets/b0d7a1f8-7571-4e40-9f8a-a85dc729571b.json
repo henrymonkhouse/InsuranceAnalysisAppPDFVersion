@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "id": "b0d7a1f8-7571-4e40-9f8a-a85dc729571b",
+    "description": "",
+    "createdAt": "2025-08-05T20:52:53.060Z",
+    "updatedAt": "2025-08-05T20:53:04.044Z",
+    "completionStatus": {
+      "medUHC": false,
+      "vision": false,
+      "cobra": false,
+      "gtl": false,
+      "medUHC2": false,
+      "medUHCTrustmark": false,
+      "volLife": false,
+      "vltd": false,
+      "dental": false
+    },
+    "selectedTabs": [
+      "medUHC",
+      "vision",
+      "cobra",
+      "gtl",
+      "medUHC2",
+      "medUHCTrustmark",
+      "volLife",
+      "vltd",
+      "dental"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "Testing",
+      "effectiveDate": "2025-08-03",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

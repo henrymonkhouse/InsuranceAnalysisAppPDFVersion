@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "b74c487e-7a79-4f04-8787-f7ad074d7d98",
+    "name": "Kincaid",
+    "description": "",
+    "createdAt": "2025-08-06T18:38:32.753Z",
+    "updatedAt": "2025-08-06T18:38:32.753Z",
+    "completionStatus": {
+      "medFullyInsured": false
+    },
+    "selectedTabs": [
+      "medFullyInsured"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "asfgafv",
+      "effectiveDate": "2025-08-22",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

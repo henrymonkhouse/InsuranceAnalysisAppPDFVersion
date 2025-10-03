@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "9557b49a-01fb-4e21-a6b6-67bff89f38e8",
+    "name": "dfwerv",
+    "description": "",
+    "createdAt": "2025-09-16T20:57:01.996Z",
+    "updatedAt": "2025-09-16T20:57:01.996Z",
+    "completionStatus": {
+      "medFullyInsured": false
+    },
+    "selectedTabs": [
+      "medFullyInsured"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "wrgbwrb",
+      "effectiveDate": "2025-09-11",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "id": "50dfdea1-5e17-4bd0-89b7-c8dac6cace50",
+    "name": "t",
+    "description": "",
+    "createdAt": "2025-08-05T20:53:46.974Z",
+    "updatedAt": "2025-08-05T20:53:46.974Z",
+    "completionStatus": {
+      "medFullyInsured": false,
+      "dental": false,
+      "vision": false,
+      "gtl": false,
+      "volLife": false,
+      "vltd": false,
+      "cobra": false
+    },
+    "selectedTabs": [
+      "medFullyInsured",
+      "dental",
+      "vision",
+      "gtl",
+      "volLife",
+      "vltd",
+      "cobra"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "t",
+      "effectiveDate": "2025-08-15",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

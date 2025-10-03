@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "id": "c97722d9-ed2e-4445-b97c-b471cc97f894",
+    "description": "",
+    "createdAt": "2025-09-10T20:06:40.972Z",
+    "updatedAt": "2025-09-10T20:06:45.570Z",
+    "completionStatus": {
+      "medUHC": false,
+      "medUHCTrustmark": false
+    },
+    "selectedTabs": [
+      "medUHC",
+      "medUHCTrustmark"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "Test",
+      "effectiveDate": "2025-09-12",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

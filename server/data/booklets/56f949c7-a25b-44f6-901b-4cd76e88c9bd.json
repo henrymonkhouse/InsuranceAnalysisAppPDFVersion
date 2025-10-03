@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "id": "56f949c7-a25b-44f6-901b-4cd76e88c9bd",
+    "description": "",
+    "createdAt": "2025-08-06T21:45:08.788Z",
+    "updatedAt": "2025-08-06T21:57:15.368Z",
+    "completionStatus": {
+      "volLife": true
+    },
+    "selectedTabs": [
+      "volLife"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "3",
+      "effectiveDate": "2025-08-15",
+      "companyLogo": null
+    },
+    "tabs": {
+      "volLife": {
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ],
+        "planNames": {},
+        "overviewData": {
+          "participationRequirement": {},
+          "employeeBenefitAmount": {},
+          "employeeGuaranteeIssue": {},
+          "spouseBenefitAmount": {},
+          "spouseGuaranteeIssue": {},
+          "childBenefitAmount": {},
+          "childGuaranteeIssue": {},
+          "benefitReductionSchedule": {},
+          "noRateIncrease": {}
+        },
+        "premiumRates": {
+          "15-29": {},
+          "30-34": {},
+          "35-39": {},
+          "40-44": {},
+          "45-49": {},
+          "50-54": {},
+          "55-59": {},
+          "60-64": {},
+          "65-69": {},
+          "70-74": {},
+          "75+": {},
+          "ADD": {},
+          "childRate": {}
+        }
+      }
+    }
+  }
+}

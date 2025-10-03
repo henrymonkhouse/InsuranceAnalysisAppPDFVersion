@@ -1,0 +1,59 @@
+{
+  "name": "insurance-data-app",
+  "version": "1.0.0",
+  "description": "Insurance Data Analysis Application",
+  "main": "electron/main.js",
+  "homepage": "./",
+  "scripts": {
+    "install-deps": "cd client && npm install && cd ../server && npm install",
+    "build-client": "cd client && npm run build",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"cd server && npm start\" \"wait-on http://localhost:3001 && electron .\"",
+    "build": "npm run build-client && electron-builder",
+    "dist": "npm run build-client && electron-builder --publish=never",
+    "dist-win": "npm run build-client && electron-builder --win --publish=never",
+    "dist-mac": "npm run build-client && electron-builder --mac --publish=never",
+    "pack": "npm run build-client && electron-builder --dir"
+  },
+  "build": {
+    "appId": "com.insurance.data.app",
+    "productName": "Insurance Data App",
+    "directories": {
+      "output": "dist"
+    },
+    "icon": "build/icon",
+    "asarUnpack": [
+      "server/**/*",
+      "server/node_modules/**/*"
+    ],
+    "files": [
+      "electron/**/*",
+      "client/build/**/*",
+      "server/**/*",
+      "!**/.git",
+      "!**/.gitignore"
+    ],
+    "includeSubNodeModules": true,
+    "mac": {
+      "category": "public.app-category.business",
+      "target": "dmg",
+      "icon": "build/icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.9.1",
+    "electron-is-dev": "^2.0.0",
+    "wait-on": "^7.2.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

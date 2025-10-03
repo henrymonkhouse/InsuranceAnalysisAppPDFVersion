@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "b5ae723b-ea0e-4e31-a076-89378c00d2e1",
+    "name": "gb",
+    "description": "",
+    "createdAt": "2025-08-26T21:10:58.046Z",
+    "updatedAt": "2025-08-26T21:10:58.046Z",
+    "completionStatus": {
+      "medFullyInsured": false
+    },
+    "selectedTabs": [
+      "medFullyInsured"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "gb",
+      "effectiveDate": "2025-08-14",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

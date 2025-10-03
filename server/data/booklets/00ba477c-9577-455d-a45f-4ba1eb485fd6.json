@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "id": "00ba477c-9577-455d-a45f-4ba1eb485fd6",
+    "description": "",
+    "createdAt": "2025-08-28T20:42:16.122Z",
+    "updatedAt": "2025-08-28T20:43:52.083Z",
+    "completionStatus": {
+      "medUHC": true
+    },
+    "selectedTabs": [
+      "medUHC"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "Test",
+      "effectiveDate": "2025-08-06",
+      "companyLogo": null
+    },
+    "tabs": {
+      "medUHC": {
+        "planDetails": {
+          "organizationName": "",
+          "effectiveDate": "",
+          "plans": {},
+          "networks": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "overviews": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "deductibles": {
+          "individual": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "family": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "outOfPocket": {
+          "individual": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "family": {
+            "renewal": "1"
+          }
+        },
+        "coinsuranceValues": {
+          "regular": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "routine": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "primaryCare": {
+          "amount": {},
+          "text": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "specialist": {
+          "amount": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "type": {}
+        },
+        "inpatientHospitalization": {
+          "amount": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "type": {}
+        },
+        "outpatientSurgery": {
+          "amount": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "type": {}
+        },
+        "emergencyRoom": {
+          "amount": {
+            "renewal": "1"
+          },
+          "type": {}
+        },
+        "urgentCare": {
+          "amount": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "type": {}
+        },
+        "retailPrescription": {
+          "tier1": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "tier2": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "tier3": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "tier4": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "financialSummary": {
+          "employeeCount": "1",
+          "employeeSpouseCount": "1",
+          "employeeChildrenCount": "1",
+          "familyCount": "1",
+          "employeeRate": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "employeeSpouseRate": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "employeeChildrenRate": {
+            "current": "1",
+            "renewal": "12"
+          },
+          "familyRate": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 4,
+            "renewal": 15
+          },
+          "annualPremiums": {
+            "current": 48,
+            "renewal": 180
+          },
+          "dollarDifferences": {
+            "renewal": 132
+          },
+          "percentDifferences": {
+            "renewal": 275
+          }
+        },
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ]
+      }
+    }
+  }
+}

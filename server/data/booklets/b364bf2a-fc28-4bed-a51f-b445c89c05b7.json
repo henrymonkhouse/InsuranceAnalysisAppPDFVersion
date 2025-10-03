@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "id": "b364bf2a-fc28-4bed-a51f-b445c89c05b7",
+    "description": "",
+    "createdAt": "2025-08-06T21:33:30.898Z",
+    "updatedAt": "2025-08-06T21:35:42.377Z",
+    "completionStatus": {
+      "vision": true
+    },
+    "selectedTabs": [
+      "vision"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "55",
+      "effectiveDate": "2025-08-08",
+      "companyLogo": null
+    },
+    "tabs": {
+      "vision": {
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ],
+        "planNames": {},
+        "networkSettings": {},
+        "coverageTypeSettings": {},
+        "examCosts": {},
+        "lensesCosts": {
+          "singleVision": {},
+          "bifocal": {},
+          "trifocal": {},
+          "lenticular": {}
+        },
+        "framesAllowance": {},
+        "contacts": {
+          "elective": {},
+          "medicallyNecessary": {}
+        },
+        "frequency": {
+          "exam": {},
+          "lenses": {},
+          "frames": {}
+        },
+        "rateGuarantee": {},
+        "rates": {
+          "employeeCount": "",
+          "employeeSpouseCount": "",
+          "employeeChildCount": "",
+          "familyCount": "",
+          "employee": {},
+          "employeeSpouse": {},
+          "employeeChild": {},
+          "family": {}
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "annualTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "dollarDifferences": {
+            "renewal": 0
+          },
+          "percentDifferences": {
+            "renewal": 0
+          }
+        }
+      }
+    }
+  }
+}

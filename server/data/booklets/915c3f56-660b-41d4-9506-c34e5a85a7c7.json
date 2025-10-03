@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "id": "915c3f56-660b-41d4-9506-c34e5a85a7c7",
+    "description": "",
+    "createdAt": "2025-08-05T20:54:55.861Z",
+    "updatedAt": "2025-08-05T20:55:52.408Z",
+    "completionStatus": {
+      "medUHC": true,
+      "vision": true,
+      "cobra": true,
+      "medUHC2": true,
+      "medUHCTrustmark": true,
+      "volLife": true,
+      "vltd": true,
+      "dental": true,
+      "gtl": true
+    },
+    "selectedTabs": [
+      "medUHC",
+      "vision",
+      "cobra",
+      "medUHC2",
+      "medUHCTrustmark",
+      "volLife",
+      "vltd",
+      "dental",
+      "gtl"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "Test",
+      "effectiveDate": "2025-08-16",
+      "companyLogo": null
+    },
+    "tabs": {
+      "medUHC": {
+        "planDetails": {},
+        "deductibles": {},
+        "outOfPocket": {},
+        "coinsurance": {},
+        "benefits": {},
+        "costs": {},
+        "columns": [
+          {},
+          {}
+        ]
+      },
+      "medUHC2": {
+        "planDetails": {},
+        "deductibles": {},
+        "outOfPocket": {
+          "family": {}
+        },
+        "coinsurance": {},
+        "benefits": {},
+        "costs": {},
+        "columns": []
+      },
+      "medUHCTrustmark": {
+        "planDetails": {},
+        "deductibles": {},
+        "outOfPocket": {},
+        "coinsurance": {},
+        "benefits": {},
+        "costs": {},
+        "columns": [
+          {},
+          {}
+        ]
+      },
+      "dental": {
+        "planDetails": {},
+        "deductibles": {},
+        "outOfPocket": {},
+        "benefits": {},
+        "costs": {},
+        "columns": []
+      },
+      "vision": {
+        "planDetails": {},
+        "benefits": {},
+        "costs": {},
+        "columns": []
+      },
+      "gtl": {
+        "planDetails": {},
+        "benefits": {},
+        "costs": {},
+        "columns": [
+          {},
+          {}
+        ]
+      },
+      "volLife": {
+        "planDetails": {},
+        "benefits": {},
+        "costs": {},
+        "columns": [
+          {},
+          {}
+        ]
+      },
+      "vltd": {
+        "planDetails": {},
+        "benefits": {},
+        "costs": {},
+        "columns": []
+      },
+      "cobra": {
+        "planDetails": {},
+        "benefits": {},
+        "costs": {},
+        "columns": [
+          {},
+          {}
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "a982c023-5c3b-4ddf-8382-6c2917ad9b42",
+    "name": "2",
+    "description": "",
+    "createdAt": "2025-08-06T21:45:08.783Z",
+    "updatedAt": "2025-08-06T21:45:08.783Z",
+    "completionStatus": {
+      "volLife": false
+    },
+    "selectedTabs": [
+      "volLife"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "3",
+      "effectiveDate": "2025-08-15",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "id": "c6a2b369-56ab-4443-8b8f-0614ced00268",
+    "description": "",
+    "createdAt": "2025-08-06T16:44:48.123Z",
+    "updatedAt": "2025-08-06T16:44:50.102Z",
+    "completionStatus": {
+      "dental": false
+    },
+    "selectedTabs": [
+      "dental"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "T",
+      "effectiveDate": "2025-08-14",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

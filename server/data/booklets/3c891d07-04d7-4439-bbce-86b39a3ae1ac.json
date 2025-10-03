@@ -1,0 +1,558 @@
+{
+  "metadata": {
+    "id": "3c891d07-04d7-4439-bbce-86b39a3ae1ac",
+    "description": "",
+    "createdAt": "2025-08-08T13:59:18.425Z",
+    "updatedAt": "2025-08-08T16:24:32.789Z",
+    "completionStatus": {
+      "medUHC": true,
+      "dental": true,
+      "medUHC2": true,
+      "vision": true,
+      "gtl": true,
+      "volLife": true,
+      "vltd": true,
+      "cobra": true
+    },
+    "selectedTabs": [
+      "medUHC",
+      "dental",
+      "medUHC2",
+      "vision",
+      "gtl",
+      "volLife",
+      "vltd",
+      "cobra"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "T",
+      "effectiveDate": "2025-08-16",
+      "companyLogo": null
+    },
+    "tabs": {
+      "medUHC": {
+        "planDetails": {
+          "organizationName": "",
+          "effectiveDate": "",
+          "plans": {},
+          "networks": {},
+          "overviews": {}
+        },
+        "deductibles": {
+          "individual": {},
+          "family": {}
+        },
+        "outOfPocket": {
+          "individual": {},
+          "family": {}
+        },
+        "coinsuranceValues": {
+          "regular": {},
+          "routine": {}
+        },
+        "primaryCare": {
+          "amount": {},
+          "text": {}
+        },
+        "specialist": {
+          "amount": {},
+          "type": {}
+        },
+        "inpatientHospitalization": {
+          "amount": {},
+          "type": {}
+        },
+        "outpatientSurgery": {
+          "amount": {},
+          "type": {}
+        },
+        "emergencyRoom": {
+          "amount": {},
+          "type": {}
+        },
+        "urgentCare": {
+          "amount": {},
+          "type": {}
+        },
+        "retailPrescription": {
+          "tier1": {},
+          "tier2": {},
+          "tier3": {},
+          "tier4": {}
+        },
+        "financialSummary": {
+          "employeeCount": "",
+          "employeeSpouseCount": "",
+          "employeeChildrenCount": "",
+          "familyCount": "",
+          "employeeRate": {},
+          "employeeSpouseRate": {},
+          "employeeChildrenRate": {},
+          "familyRate": {}
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "annualPremiums": {
+            "current": 0,
+            "renewal": 0
+          },
+          "dollarDifferences": {
+            "renewal": 0
+          },
+          "percentDifferences": {
+            "renewal": 0
+          }
+        },
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ]
+      },
+      "medUHC2": {
+        "planDetails": {
+          "organizationName": "",
+          "effectiveDate": "",
+          "plans": {},
+          "networks": {},
+          "overviews": {}
+        },
+        "deductibles": {
+          "individual": {},
+          "family": {}
+        },
+        "outOfPocket": {
+          "individual": {},
+          "family": {}
+        },
+        "coinsuranceValues": {
+          "regular": {},
+          "routine": {}
+        },
+        "primaryCare": {
+          "amount": {},
+          "text": {}
+        },
+        "specialist": {
+          "amount": {},
+          "type": {}
+        },
+        "inpatientHospitalization": {
+          "amount": {},
+          "type": {}
+        },
+        "outpatientSurgery": {
+          "amount": {},
+          "type": {}
+        },
+        "emergencyRoom": {
+          "amount": {},
+          "type": {}
+        },
+        "urgentCare": {
+          "amount": {},
+          "type": {}
+        },
+        "retailPrescription": {
+          "tier1": {},
+          "tier2": {},
+          "tier3": {},
+          "tier4": {}
+        },
+        "financialSummary": {
+          "employeeCount": "",
+          "employeeSpouseCount": "",
+          "employeeChildrenCount": "",
+          "familyCount": "",
+          "employeeRate": {},
+          "employeeSpouseRate": {},
+          "employeeChildrenRate": {},
+          "familyRate": {}
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "annualPremiums": {
+            "current": 0,
+            "renewal": 0
+          },
+          "dollarDifferences": {
+            "renewal": 0
+          },
+          "percentDifferences": {
+            "renewal": 0
+          }
+        },
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ]
+      },
+      "dental": {
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ],
+        "planNames": {
+          "current": "",
+          "renewal": ""
+        },
+        "networkSettings": {
+          "current": "",
+          "renewal": ""
+        },
+        "coverageTypeSettings": {
+          "current": "In Network Benefits",
+          "renewal": "In Network Benefits"
+        },
+        "coverage": {
+          "preventive": {
+            "current": "",
+            "renewal": ""
+          },
+          "basic": {
+            "current": "",
+            "renewal": ""
+          },
+          "major": {
+            "current": "",
+            "renewal": ""
+          },
+          "orthodontia": {
+            "current": "",
+            "renewal": ""
+          }
+        },
+        "limits": {
+          "deductible": {
+            "current": {
+              "indiv": "",
+              "family": ""
+            },
+            "renewal": {
+              "indiv": "",
+              "family": ""
+            }
+          },
+          "deductibleMax": {
+            "current": "",
+            "renewal": ""
+          },
+          "dependentAge": {
+            "current": "",
+            "renewal": ""
+          }
+        },
+        "services": {
+          "endodonticsNonSurgical": {
+            "current": "",
+            "renewal": ""
+          },
+          "endodonticsSurgical": {
+            "current": "",
+            "renewal": ""
+          },
+          "periodonticsNonSurgical": {
+            "current": "",
+            "renewal": ""
+          },
+          "periodonticsSurgical": {
+            "current": "",
+            "renewal": ""
+          }
+        },
+        "rateGuarantee": {
+          "current": "",
+          "renewal": ""
+        },
+        "rates": {
+          "employeeCount": "",
+          "employeeSpouseCount": "",
+          "employeeChildrenCount": "",
+          "familyCount": "",
+          "columnRates": {
+            "current": {
+              "employee": "",
+              "employeeSpouse": "",
+              "employeeChildren": "",
+              "family": ""
+            },
+            "renewal": {
+              "employee": "",
+              "employeeSpouse": "",
+              "employeeChildren": "",
+              "family": ""
+            }
+          }
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "annualTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "rateReductions": {
+            "current": "",
+            "renewal": ""
+          }
+        }
+      },
+      "vision": {
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ],
+        "planNames": {},
+        "networkSettings": {},
+        "coverageTypeSettings": {},
+        "examCosts": {},
+        "lensesCosts": {
+          "singleVision": {},
+          "bifocal": {},
+          "trifocal": {},
+          "lenticular": {}
+        },
+        "framesAllowance": {},
+        "contacts": {
+          "elective": {},
+          "medicallyNecessary": {}
+        },
+        "frequency": {
+          "exam": {},
+          "lenses": {},
+          "frames": {}
+        },
+        "rateGuarantee": {},
+        "rates": {
+          "employeeCount": "",
+          "employeeSpouseCount": "",
+          "employeeChildCount": "",
+          "familyCount": "",
+          "employee": {},
+          "employeeSpouse": {},
+          "employeeChild": {},
+          "family": {}
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "annualTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "dollarDifferences": {
+            "renewal": 0
+          },
+          "percentDifferences": {
+            "renewal": 0
+          }
+        }
+      },
+      "gtl": {
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ],
+        "planNames": {},
+        "coverage": {
+          "employerContribution": {},
+          "participationRequirement": {},
+          "lifeInsuranceBenefit": {},
+          "benefitReductionSchedule": {},
+          "rateGuarantee": {}
+        },
+        "rates": {
+          "employeeCount": "",
+          "basedOnAmount": "",
+          "lifeInsuranceRate": {},
+          "addRate": {}
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "annualTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "dollarDifferences": {
+            "renewal": 0
+          },
+          "percentDifferences": {
+            "renewal": 0
+          }
+        }
+      },
+      "volLife": {
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ],
+        "planNames": {},
+        "overviewData": {
+          "participationRequirement": {},
+          "employeeBenefitAmount": {},
+          "employeeGuaranteeIssue": {},
+          "spouseBenefitAmount": {},
+          "spouseGuaranteeIssue": {},
+          "childBenefitAmount": {},
+          "childGuaranteeIssue": {},
+          "benefitReductionSchedule": {},
+          "noRateIncrease": {}
+        },
+        "premiumRates": {
+          "15-29": {},
+          "30-34": {},
+          "35-39": {},
+          "40-44": {},
+          "45-49": {},
+          "50-54": {},
+          "55-59": {},
+          "60-64": {},
+          "65-69": {},
+          "70-74": {},
+          "75+": {},
+          "ADD": {},
+          "childRate": {}
+        }
+      },
+      "vltd": {
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ],
+        "planNames": {},
+        "planData": {
+          "employerContribution": {},
+          "participationRequirement": {},
+          "eliminationPeriod": {},
+          "ownOccupationPeriod": {},
+          "monthlyBenefit": {},
+          "benefitMaximum": {},
+          "taxableBenefit": {},
+          "benefitDuration": {},
+          "preExistingConditions": {},
+          "mentalDisorders": {},
+          "drugAlcohol": {},
+          "rateGuarantee": {},
+          "ratePer100Benefit": {},
+          "totalMonthlyRate": {},
+          "rateIncreaseStatus": {}
+        }
+      },
+      "cobra": {
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ],
+        "planNames": {},
+        "comparisonData": {
+          "oneTimeSetUpFee": {},
+          "annualMinimum": {},
+          "totalInitialPayment": {},
+          "perEmployeePerMonth": {},
+          "employeeCount": "",
+          "totalMonthlyCost": {}
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 0,
+            "renewal": 0
+          }
+        }
+      }
+    }
+  }
+}

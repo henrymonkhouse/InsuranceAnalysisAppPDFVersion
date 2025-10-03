@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "id": "6f6b348a-a85f-48b8-ad20-387f94d52070",
+    "description": "",
+    "createdAt": "2025-08-06T18:50:20.712Z",
+    "updatedAt": "2025-08-06T18:50:55.637Z",
+    "completionStatus": {
+      "dental": true
+    },
+    "selectedTabs": [
+      "dental"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "t",
+      "effectiveDate": "2025-08-08",
+      "companyLogo": null
+    },
+    "tabs": {
+      "dental": {
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ],
+        "planNames": {
+          "current": "",
+          "renewal": ""
+        },
+        "networkSettings": {
+          "current": "",
+          "renewal": ""
+        },
+        "coverageTypeSettings": {
+          "current": "In Network Benefits",
+          "renewal": "In Network Benefits"
+        },
+        "coverage": {
+          "preventive": {
+            "current": "",
+            "renewal": ""
+          },
+          "basic": {
+            "current": "",
+            "renewal": ""
+          },
+          "major": {
+            "current": "",
+            "renewal": ""
+          },
+          "orthodontia": {
+            "current": "",
+            "renewal": ""
+          }
+        },
+        "limits": {
+          "deductible": {
+            "current": {
+              "indiv": "",
+              "family": ""
+            },
+            "renewal": {
+              "indiv": "",
+              "family": ""
+            }
+          },
+          "deductibleMax": {
+            "current": "",
+            "renewal": ""
+          },
+          "dependentAge": {
+            "current": "",
+            "renewal": ""
+          }
+        },
+        "services": {
+          "endodonticsNonSurgical": {
+            "current": "",
+            "renewal": ""
+          },
+          "endodonticsSurgical": {
+            "current": "",
+            "renewal": ""
+          },
+          "periodonticsNonSurgical": {
+            "current": "",
+            "renewal": ""
+          },
+          "periodonticsSurgical": {
+            "current": "",
+            "renewal": ""
+          }
+        },
+        "rateGuarantee": {
+          "current": "",
+          "renewal": ""
+        },
+        "rates": {
+          "employeeCount": "",
+          "employeeSpouseCount": "",
+          "employeeChildrenCount": "",
+          "familyCount": "",
+          "columnRates": {
+            "current": {
+              "employee": "",
+              "employeeSpouse": "",
+              "employeeChildren": "",
+              "family": ""
+            },
+            "renewal": {
+              "employee": "",
+              "employeeSpouse": "",
+              "employeeChildren": "",
+              "family": ""
+            }
+          }
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "annualTotals": {
+            "current": 0,
+            "renewal": 0
+          },
+          "rateReductions": {
+            "current": "",
+            "renewal": ""
+          }
+        }
+      }
+    }
+  }
+}

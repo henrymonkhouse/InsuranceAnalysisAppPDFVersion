@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "1d288aeb-9ce5-4d70-b23d-72751c197474",
+    "name": "test",
+    "description": "",
+    "createdAt": "2025-08-28T20:48:17.083Z",
+    "updatedAt": "2025-08-28T20:48:17.083Z",
+    "completionStatus": {
+      "medFullyInsured": false
+    },
+    "selectedTabs": [
+      "medFullyInsured"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "test",
+      "effectiveDate": "2025-08-14",
+      "companyLogo": null
+    },
+    "tabs": {}
+  }
+}

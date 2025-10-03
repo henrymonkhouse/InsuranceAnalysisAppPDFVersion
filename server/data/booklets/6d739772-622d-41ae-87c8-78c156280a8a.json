@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "id": "6d739772-622d-41ae-87c8-78c156280a8a",
+    "description": "",
+    "createdAt": "2025-08-28T20:22:37.030Z",
+    "updatedAt": "2025-08-28T20:40:37.412Z",
+    "completionStatus": {
+      "medUHC": true
+    },
+    "selectedTabs": [
+      "medUHC"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "t",
+      "effectiveDate": "2025-08-25",
+      "companyLogo": null
+    },
+    "tabs": {
+      "medUHC": {
+        "planDetails": {
+          "organizationName": "",
+          "effectiveDate": "",
+          "plans": {},
+          "networks": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "overviews": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "deductibles": {
+          "individual": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "family": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "outOfPocket": {
+          "individual": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "family": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "coinsuranceValues": {
+          "regular": {
+            "renewal": "1"
+          },
+          "routine": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "primaryCare": {
+          "amount": {},
+          "text": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "specialist": {
+          "amount": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "type": {}
+        },
+        "inpatientHospitalization": {
+          "amount": {
+            "current": "1"
+          },
+          "type": {}
+        },
+        "outpatientSurgery": {
+          "amount": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "type": {}
+        },
+        "emergencyRoom": {
+          "amount": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "type": {}
+        },
+        "urgentCare": {
+          "amount": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "type": {}
+        },
+        "retailPrescription": {
+          "tier1": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "tier2": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "tier3": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "tier4": {
+            "current": "1",
+            "renewal": "1"
+          }
+        },
+        "financialSummary": {
+          "employeeCount": "1",
+          "employeeSpouseCount": "1",
+          "employeeChildrenCount": "1",
+          "familyCount": "1",
+          "employeeRate": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "employeeSpouseRate": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "employeeChildrenRate": {
+            "current": "1",
+            "renewal": "1"
+          },
+          "familyRate": {
+            "current": "5",
+            "renewal": "1"
+          }
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 8,
+            "renewal": 4
+          },
+          "annualPremiums": {
+            "current": 96,
+            "renewal": 48
+          },
+          "dollarDifferences": {
+            "renewal": -48
+          },
+          "percentDifferences": {
+            "renewal": -50
+          }
+        },
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          }
+        ]
+      }
+    }
+  }
+}

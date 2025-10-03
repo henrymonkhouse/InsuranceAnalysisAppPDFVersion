@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "id": "c5b51c68-5689-4743-972b-ad7b2fef3c2e",
+    "description": "",
+    "createdAt": "2025-09-04T14:55:01.891Z",
+    "updatedAt": "2025-09-04T15:04:35.595Z",
+    "completionStatus": {
+      "medUHC": true
+    },
+    "selectedTabs": [
+      "medUHC"
+    ]
+  },
+  "data": {
+    "sharedDetails": {
+      "organizationName": "Test",
+      "effectiveDate": "2025-09-11",
+      "companyLogo": null
+    },
+    "tabs": {
+      "medUHC": {
+        "planDetails": {
+          "organizationName": "",
+          "effectiveDate": "",
+          "plans": {},
+          "networks": {},
+          "overviews": {}
+        },
+        "deductibles": {
+          "individual": {},
+          "family": {}
+        },
+        "outOfPocket": {
+          "individual": {},
+          "family": {}
+        },
+        "coinsuranceValues": {
+          "regular": {},
+          "routine": {}
+        },
+        "primaryCare": {
+          "amount": {},
+          "text": {}
+        },
+        "specialist": {
+          "amount": {},
+          "type": {}
+        },
+        "inpatientHospitalization": {
+          "amount": {},
+          "type": {}
+        },
+        "outpatientSurgery": {
+          "amount": {},
+          "type": {}
+        },
+        "emergencyRoom": {
+          "amount": {},
+          "type": {}
+        },
+        "urgentCare": {
+          "amount": {},
+          "type": {}
+        },
+        "retailPrescription": {
+          "tier1": {},
+          "tier2": {},
+          "tier3": {},
+          "tier4": {}
+        },
+        "financialSummary": {
+          "employeeCount": "5",
+          "employeeSpouseCount": "5",
+          "employeeChildrenCount": "5",
+          "familyCount": "5",
+          "employeeRate": {
+            "current": "10",
+            "renewal": "8"
+          },
+          "employeeSpouseRate": {
+            "current": "10",
+            "renewal": "7"
+          },
+          "employeeChildrenRate": {
+            "current": "10",
+            "renewal": "5"
+          },
+          "familyRate": {
+            "current": "10",
+            "renewal": ""
+          }
+        },
+        "calculatedTotals": {
+          "monthlyTotals": {
+            "current": 200,
+            "renewal": 100,
+            "alternate1": 0
+          },
+          "annualPremiums": {
+            "current": 2400,
+            "renewal": 1200,
+            "alternate1": 0
+          },
+          "dollarDifferences": {
+            "renewal": -1200,
+            "alternate1": -2400
+          },
+          "percentDifferences": {
+            "renewal": -50,
+            "alternate1": -100
+          }
+        },
+        "columns": [
+          {
+            "id": "current",
+            "label": "Current",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "renewal",
+            "label": "Renewal",
+            "type": "base",
+            "isMarketing": false
+          },
+          {
+            "id": "alternate1",
+            "label": "Alternate 1",
+            "type": "alternate",
+            "isMarketing": false
+          }
+        ]
+      }
+    }
+  }
+}
