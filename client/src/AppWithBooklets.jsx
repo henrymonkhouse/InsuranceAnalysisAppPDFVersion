@@ -3,6 +3,7 @@ import MedUHCTabWithColumns from './components/MedUHCTabWithColumns';
 import MedUHC2TabWithColumns from './components/MedUHC2TabWithColumns';
 import MedUHCTrustmarkTab from './components/MedUHCTrustmarkTab';
 import SelfFunded from './components/SelfFunded';
+import SelfFundedMarketing from './components/SelfFundedMarketing';
 import HomeScreen from './components/HomeScreen';
 import TabSelector from './components/TabSelector';
 import { BookletProvider, useBooklet } from './context/BookletContext';
@@ -33,6 +34,7 @@ const AppContent = () => {
   const medUHC2TabRef = useRef(null);
   const medUHCTrustmarkTabRef = useRef(null);
   const selfFundedTabRef = useRef(null);
+  const selfFundedMarketingTabRef = useRef(null);
 
   // Initialize app version if running in Electron
   useEffect(() => {
@@ -135,6 +137,7 @@ const AppContent = () => {
         medUHC2: medUHC2TabRef,
         medUHCTrustmark: medUHCTrustmarkTabRef,
         selfFunded: selfFundedTabRef,
+        selfFundedMarketing: selfFundedMarketingTabRef,
       };
 
       // Update local data for all tabs
@@ -237,7 +240,8 @@ const AppContent = () => {
     const selectedTabs = currentBooklet.metadata.selectedTabs;
     const tabs = [
       { id: 'medUHC', label: 'Fully Funded' },
-      { id: 'selfFunded', label: 'Self Funded' }
+      { id: 'selfFunded', label: 'Self Funded' },
+      { id: 'selfFundedMarketing', label: 'Self Funded - Marketing' }
     ].filter(tab => selectedTabs.includes(tab.id));
 
     return (
@@ -384,6 +388,14 @@ const AppContent = () => {
                 effectiveDate: currentBooklet.data.sharedDetails?.effectiveDate || ''
               }}
               onDataChange={(data) => updateLocalTabData('selfFunded', data)}
+            />
+          )}
+          {activeTab === 'selfFundedMarketing' && selectedTabs.includes('selfFundedMarketing') && (
+            <SelfFundedMarketing
+              ref={selfFundedMarketingTabRef}
+              initialData={currentBooklet.data.tabs.selfFundedMarketing}
+              selfFundedData={currentBooklet.data.tabs.selfFunded}
+              onDataChange={(data) => updateLocalTabData('selfFundedMarketing', data)}
             />
           )}
         </div>

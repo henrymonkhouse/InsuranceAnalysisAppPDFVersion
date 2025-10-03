@@ -406,7 +406,7 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
 
           {/* Plan Headers - Dynamic */}
           <div className="grid gap-4 mb-2" style={{
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4
               ? `320px repeat(${columns.length}, 1fr)`
               : `320px repeat(${columns.length}, 1fr) 60px`
           }}>
@@ -478,7 +478,7 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
                 )}
               </div>
             ))}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div className="flex items-end justify-center">
                 <button
                   onClick={() => {
@@ -504,7 +504,7 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
 
           {/* Network Row - Dynamic */}
           <div className="grid gap-4 mt-2" style={{
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4
               ? `320px repeat(${columns.length}, 1fr)`
               : `320px repeat(${columns.length}, 1fr) 60px`
           }}>
@@ -520,12 +520,12 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
                 />
               </div>
             ))}
-            {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
+            {columns.filter(col => col.type === 'alternate').length < 4 && <div></div>}
           </div>
 
           {/* Medical Plan Overview - Dynamic */}
           <div className="grid gap-4 mt-2" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -542,28 +542,28 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Annual Deductible Section */}
           <div className="grid gap-4 mt-2" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-sky-600 text-white p-2 font-medium">ANNUAL DEDUCTIBLE</div>
             {columns.map((col) => <div key={`spacer-deductible-${col.id}`}></div>)}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Individual Deductible Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -583,14 +583,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Family Deductible Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -610,28 +610,28 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Out of Pocket Maximum Section */}
           <div className="grid gap-4 mt-2" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-sky-600 text-white p-2 font-medium">ANNUAL MAXIMUM OUT OF POCKET</div>
             {columns.map((col) => <div key={`spacer-oop-${col.id}`}></div>)}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Individual Out of Pocket Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -651,14 +651,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Family Out of Pocket Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -678,14 +678,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Coinsurance Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -702,28 +702,28 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Physician Visits Section */}
           <div className="grid gap-4 mt-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-green-600 text-white p-2 font-medium">PHYSICIAN VISITS</div>
             {columns.map((col) => <div key={`spacer-physician-${col.id}`}></div>)}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Routine Preventative Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -744,14 +744,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Primary Care Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -768,14 +768,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Specialist Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -806,28 +806,28 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Hospital Services Section */}
           <div className="grid gap-4 mt-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-red-600 text-white p-2 font-medium">HOSPITAL SERVICES</div>
             {columns.map((col) => <div key={`spacer-hospital-${col.id}`}></div>)}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Inpatient Hospitalization Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -858,14 +858,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Outpatient Surgery Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -896,14 +896,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Emergency Room Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -934,14 +934,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Urgent Care Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -972,28 +972,28 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Prescription Drug Benefit Section */}
           <div className="grid gap-4 mt-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-purple-600 text-white p-2 font-medium">PRESCRIPTION DRUG BENEFIT</div>
             {columns.map((col) => <div key={`spacer-prescription-${col.id}`}></div>)}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Retail Prescription Header */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1003,7 +1003,7 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
 
           {/* Tier 1 Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1023,14 +1023,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Tier 2 Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1050,14 +1050,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Tier 3 Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1077,14 +1077,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Tier 4 Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1104,14 +1104,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Financial Summary Section */}
           <div className="grid gap-4 mt-6" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1122,14 +1122,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Employee Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1160,14 +1160,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Employee + Spouse Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1198,14 +1198,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Employee + Children Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1236,14 +1236,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Family Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1274,14 +1274,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Totals Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1294,14 +1294,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             ))}
             {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
+            {columns.filter(col => col.type === 'alternate').length < 4 && (
               <div></div>
             )}
           </div>
 
           {/* Total Annual Difference Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
@@ -1342,7 +1342,7 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
 
           {/* Total % Difference Row */}
           <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 4 
               ? `320px repeat(${columns.length}, 1fr)` 
               : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
