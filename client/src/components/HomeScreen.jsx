@@ -40,24 +40,12 @@ const DUMMY_BOOKLETS = [
   }
 ];
 
-// Complete tab list as specified
+// Tab list - Self Funded and Fully Funded with marketing options
 const ALL_TABS = [
-  { id: 'medFullyInsured', label: 'Med - Fully Insured / Level', icon: '🏥', available: true },
-  { id: 'medSelfFunded', label: 'Med – Self-Funded', icon: '🏥', available: false },
-  { id: 'dental', label: 'Dental', icon: '🦷', available: true },
-  { id: 'vision', label: 'Vision', icon: '👁️', available: true },
-  { id: 'gtl', label: 'GTL', icon: '🛡️', available: true },
-  { id: 'volLife', label: 'Vol Life', icon: '💚', available: true },
-  { id: 'vltd', label: 'VLTD', icon: '🦽', available: true },
-  { id: 'vstd', label: 'VSTD', icon: '📋', available: false },
-  { id: 'erLtd', label: 'ER LTD', icon: '📄', available: false },
-  { id: 'erStd', label: 'ER STD', icon: '📋', available: false },
-  { id: 'vci', label: 'VCI', icon: '❤️', available: false },
-  { id: 'erci', label: 'ERCI', icon: '❤️', available: false },
-  { id: 'vhos', label: 'VHOS', icon: '🏨', available: false },
-  { id: 'erhos', label: 'ERHOS', icon: '🏨', available: false },
-  { id: 'teleMed', label: 'TeleMed', icon: '📱', available: false },
-  { id: 'cobra', label: 'COBRA', icon: '🐍', available: true },
+  { id: 'selfFunded', label: 'Self Funded', icon: '📊', available: true },
+  { id: 'selfFundedMarketing', label: 'Self Funded - Marketing Page', icon: '📊', available: true },
+  { id: 'medUHC', label: 'Fully Funded', icon: '🏥', available: true },
+  { id: 'medUHCMarketing', label: 'Fully Funded - Marketing Page', icon: '🏥', available: true },
 ];
 
 const HomeScreen = ({ onOpenBooklet, onCreateBooklet }) => {
@@ -115,7 +103,7 @@ const HomeScreen = ({ onOpenBooklet, onCreateBooklet }) => {
     }
 
     try {
-      const newBooklet = await bookletApi.createBooklet({
+      const bookletData = {
         name: newBookletName,
         description: newBookletDescription,
         selectedTabs: Array.from(selectedTabs),
@@ -127,8 +115,8 @@ const HomeScreen = ({ onOpenBooklet, onCreateBooklet }) => {
           },
           tabs: {}
         }
-      });
-      
+      };
+
       // Reset form
       setShowCreateModal(false);
       setNewBookletName('');
@@ -138,9 +126,9 @@ const HomeScreen = ({ onOpenBooklet, onCreateBooklet }) => {
       setCompanyLogo(null);
       setSelectedTabs(new Set());
       setError(null);
-      
-      // Open the new booklet
-      onCreateBooklet(newBooklet);
+
+      // Pass booklet data to parent to create
+      onCreateBooklet(bookletData);
     } catch (err) {
       setError(err.message);
     }

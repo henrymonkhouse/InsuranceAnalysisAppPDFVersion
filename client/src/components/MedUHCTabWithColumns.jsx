@@ -372,38 +372,108 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
       <div className={`mx-auto w-full px-4 py-4 ${columns.length >= 4 ? 'overflow-x-auto' : 'max-w-7xl'}`}
            style={columns.length >= 4 ? { minWidth: '1200px' } : {}}>
 
+        {/* Organization Header */}
+        <div className="mb-6">
+          <div className="flex items-center mb-4">
+            <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">
+              HR
+            </div>
+            <div>
+              <input
+                type="text"
+                value={planDetails.organizationName}
+                onChange={e => handleTextInputChange('organizationName', e.target.value)}
+                className="text-2xl font-bold text-indigo-900 bg-transparent border-none focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2"
+                placeholder="Organization Name"
+              />
+              <p className="text-sm text-gray-600">Medical Plan Comparison</p>
+            </div>
+          </div>
+          <div className="flex items-center">
+            <span className="text-sm font-medium mr-2">Effective:</span>
+            <input
+              type="text"
+              value={planDetails.effectiveDate}
+              onChange={e => handleTextInputChange('effectiveDate', e.target.value)}
+              className="text-sm font-medium bg-transparent border-none focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2"
+              placeholder="Effective Date"
+            />
+          </div>
+        </div>
+
         {/* Content Area */}
         <div>
-          
-          {/* Column Headers with Marketing Checkboxes */}
-          <div 
-            className="grid gap-4 mb-2"
-            style={{ 
-              gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-                ? `200px repeat(${columns.length}, 1fr)` 
-                : `200px repeat(${columns.length}, 1fr) 60px` 
-            }}
-          >
+
+          {/* Plan Headers - Dynamic */}
+          <div className="grid gap-4 mb-2" style={{
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3
+              ? `320px repeat(${columns.length}, 1fr)`
+              : `320px repeat(${columns.length}, 1fr) 60px`
+          }}>
             <div></div>
-            {columns.map((column) => (
-              <div key={column.id} className="text-center">
-                {column.type === 'alternate' && (
-                  <div className="flex items-center justify-center mb-2">
-                    <label className="flex items-center text-sm">
-                      <input
-                        type="checkbox"
-                        checked={column.isMarketing}
-                        onChange={() => {
-                          setColumns(prev => prev.map(col => 
-                            col.id === column.id 
-                              ? { ...col, isMarketing: !col.isMarketing }
-                              : col
-                          ));
-                        }}
-                        className="mr-2 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                      />
-                      <span className="text-gray-700 font-medium">Marketing</span>
-                    </label>
+            {columns.map(column => (
+              <div key={column.id} className={`p-3 rounded-t-lg font-medium text-center ${
+                column.type === 'base'
+                  ? 'bg-indigo-700 text-white'
+                  : column.isMarketing
+                    ? 'bg-green-600 text-white'
+                    : 'bg-gray-600 text-white'
+              }`}>
+                {column.type === 'base' ? (
+                  <input
+                    type="text"
+                    value={column.label}
+                    onChange={(e) => {
+                      setColumns(prev => prev.map(col =>
+                        col.id === column.id
+                          ? { ...col, label: e.target.value }
+                          : col
+                      ));
+                    }}
+                    className="w-full bg-transparent border-none text-center font-semibold focus:outline-none focus:ring-1 focus:ring-white rounded px-1 text-sm mb-1"
+                  />
+                ) : (
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex-1">
+                        <input
+                          type="text"
+                          value={column.label}
+                          onChange={(e) => {
+                            setColumns(prev => prev.map(col =>
+                              col.id === column.id
+                                ? { ...col, label: e.target.value }
+                                : col
+                            ));
+                          }}
+                          className="w-full bg-transparent border-none text-center font-semibold focus:outline-none focus:ring-1 focus:ring-white rounded px-1 text-sm mb-1"
+                        />
+                      </div>
+                      <button
+                        onClick={() => setColumns(prev => prev.filter(col => col.id !== column.id))}
+                        className="ml-2 text-white hover:text-red-200 text-sm"
+                        title="Remove Column"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <label className="flex items-center text-xs">
+                        <input
+                          type="checkbox"
+                          checked={column.isMarketing}
+                          onChange={() => {
+                            setColumns(prev => prev.map(col =>
+                              col.id === column.id
+                                ? { ...col, isMarketing: !col.isMarketing }
+                                : col
+                            ));
+                          }}
+                          className="mr-1 rounded border-gray-300 text-white focus:ring-white"
+                        />
+                        <span className="text-white font-medium">Marketing</span>
+                      </label>
+                    </div>
                   </div>
                 )}
               </div>
@@ -422,7 +492,7 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
                     setColumns(prev => [...prev, newColumn]);
                   }}
                   className="w-12 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full flex items-center justify-center shadow-lg transition-colors"
-                  title="Add Alternate Column"
+                  title="Add Column"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -431,79 +501,12 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
               </div>
             )}
           </div>
-          
-          {/* Plan Headers - Dynamic */}
-          <div className="grid gap-4" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
-          }}>
-            <div className=""></div>
-            {columns.map(column => (
-              <div key={column.id} className={`p-3 rounded-t-lg font-medium text-center ${
-                column.type === 'base' 
-                  ? 'bg-indigo-700 text-white' 
-                  : column.isMarketing
-                    ? 'bg-green-600 text-white'
-                    : 'bg-gray-600 text-white'
-              }`}>
-                {column.type === 'base' ? (
-                  <div>
-                    <div className="font-semibold text-sm mb-2">{column.label}</div>
-                    <textarea
-                      className="w-full bg-transparent border-0 text-white text-center resize-none focus:ring-2 focus:ring-white py-1 text-sm"
-                      rows="3"
-                      value={getColumnData(planDetails.plans, column.id, column.label)}
-                      onChange={(e) => handleTextInputChange('plan', e.target.value, column.id)}
-                      placeholder="Insert Plan Name"
-                    />
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <input
-                        type="text"
-                        value={column.label}
-                        onChange={(e) => {
-                          setColumns(prev => prev.map(col => 
-                            col.id === column.id 
-                              ? { ...col, label: e.target.value }
-                              : col
-                          ));
-                        }}
-                        className="bg-transparent border-none text-center font-semibold focus:outline-none focus:ring-1 focus:ring-white rounded px-1 w-full text-sm mb-2"
-                        placeholder="Column Name"
-                      />
-                      <textarea
-                        className="w-full bg-transparent border-0 text-white text-center resize-none focus:ring-2 focus:ring-white py-1 text-sm"
-                        rows="2"
-                        value={getColumnData(planDetails.plans, column.id, '')}
-                        onChange={(e) => handleTextInputChange('plan', e.target.value, column.id)}
-                        placeholder="Insert Plan Name"
-                      />
-                    </div>
-                    <button
-                      onClick={() => setColumns(prev => prev.filter(col => col.id !== column.id))}
-                      className="ml-2 text-white hover:text-red-200 text-sm"
-                      title="Remove Column"
-                    >
-                      ✕
-                    </button>
-                  </div>
-                )}
-              </div>
-            ))}
-            {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
-              <div></div>
-            )}
-          </div>
 
           {/* Network Row - Dynamic */}
-          <div className="grid gap-4 mt-2" style={{ 
-            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+          <div className="grid gap-4 mt-2" style={{
+            gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3
+              ? `320px repeat(${columns.length}, 1fr)`
+              : `320px repeat(${columns.length}, 1fr) 60px`
           }}>
             <div className="bg-indigo-700 text-white p-2 font-medium">NETWORK</div>
             {columns.map(column => (
@@ -517,17 +520,14 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
                 />
               </div>
             ))}
-            {/* Empty spacer for plus button alignment */}
-            {columns.filter(col => col.type === 'alternate').length < 3 && (
-              <div></div>
-            )}
+            {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
           </div>
 
           {/* Medical Plan Overview - Dynamic */}
           <div className="grid gap-4 mt-2" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-indigo-700 text-white p-2 font-medium">MEDICAL PLAN OVERVIEW</div>
             {columns.map(column => (
@@ -550,8 +550,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Annual Deductible Section */}
           <div className="grid gap-4 mt-2" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-sky-600 text-white p-2 font-medium">ANNUAL DEDUCTIBLE</div>
             {columns.map((col) => <div key={`spacer-deductible-${col.id}`}></div>)}
@@ -564,8 +564,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Individual Deductible Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-t border-slate-200 font-medium">Individual</div>
             {columns.map(column => (
@@ -591,8 +591,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Family Deductible Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-slate-200 font-medium">Family</div>
             {columns.map(column => (
@@ -618,8 +618,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Out of Pocket Maximum Section */}
           <div className="grid gap-4 mt-2" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-sky-600 text-white p-2 font-medium">ANNUAL MAXIMUM OUT OF POCKET</div>
             {columns.map((col) => <div key={`spacer-oop-${col.id}`}></div>)}
@@ -632,8 +632,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Individual Out of Pocket Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-t border-slate-200 font-medium">Individual</div>
             {columns.map(column => (
@@ -659,8 +659,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Family Out of Pocket Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-slate-200 font-medium">Family</div>
             {columns.map(column => (
@@ -686,8 +686,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Coinsurance Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-slate-200 font-medium">Coinsurance</div>
             {columns.map(column => (
@@ -710,8 +710,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Physician Visits Section */}
           <div className="grid gap-4 mt-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-green-600 text-white p-2 font-medium">PHYSICIAN VISITS</div>
             {columns.map((col) => <div key={`spacer-physician-${col.id}`}></div>)}
@@ -724,8 +724,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Routine Preventative Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-t border-slate-200 font-medium">Routine Preventative</div>
             {columns.map(column => (
@@ -752,8 +752,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Primary Care Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-slate-200 font-medium">Primary Care</div>
             {columns.map(column => (
@@ -776,8 +776,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Specialist Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-slate-200 font-medium">Specialist</div>
             {columns.map(column => (
@@ -814,8 +814,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Hospital Services Section */}
           <div className="grid gap-4 mt-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-red-600 text-white p-2 font-medium">HOSPITAL SERVICES</div>
             {columns.map((col) => <div key={`spacer-hospital-${col.id}`}></div>)}
@@ -828,8 +828,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Inpatient Hospitalization Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-t border-slate-200 font-medium">Inpatient Hospitalization</div>
             {columns.map(column => (
@@ -866,8 +866,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Outpatient Surgery Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-slate-200 font-medium">Outpatient Surgery</div>
             {columns.map(column => (
@@ -904,8 +904,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Emergency Room Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-slate-200 font-medium">Emergency Room</div>
             {columns.map(column => (
@@ -942,8 +942,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Urgent Care Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-slate-200 font-medium">Urgent Care</div>
             {columns.map(column => (
@@ -980,8 +980,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Prescription Drug Benefit Section */}
           <div className="grid gap-4 mt-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-purple-600 text-white p-2 font-medium">PRESCRIPTION DRUG BENEFIT</div>
             {columns.map((col) => <div key={`spacer-prescription-${col.id}`}></div>)}
@@ -994,8 +994,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Retail Prescription Header */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-purple-100 border-l border-b border-t border-slate-200 font-medium text-purple-800">Retail</div>
             {columns.map((col) => <div key={`spacer-retail-${col.id}`} className="bg-purple-100 border border-slate-200"></div>)}
@@ -1004,8 +1004,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Tier 1 Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-8 p-2 bg-white border-l border-b border-slate-200 font-medium">Tier 1 (Generic)</div>
             {columns.map(column => (
@@ -1031,8 +1031,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Tier 2 Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-8 p-2 bg-white border-l border-b border-slate-200 font-medium">Tier 2 (Preferred Brand)</div>
             {columns.map(column => (
@@ -1058,8 +1058,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Tier 3 Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-8 p-2 bg-white border-l border-b border-slate-200 font-medium">Tier 3 (Non-Preferred Brand)</div>
             {columns.map(column => (
@@ -1085,8 +1085,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Tier 4 Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-8 p-2 bg-white border-l border-b border-slate-200 font-medium">Tier 4 (Specialty)</div>
             {columns.map(column => (
@@ -1112,8 +1112,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Financial Summary Section */}
           <div className="grid gap-4 mt-6" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="bg-indigo-700 text-white p-2 font-medium">FINANCIAL SUMMARY</div>
             {columns.map(column => (
@@ -1130,8 +1130,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Employee Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-t border-slate-200 font-medium flex justify-between">
               <span>Employee</span>
@@ -1168,8 +1168,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Employee + Spouse Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-slate-200 font-medium flex justify-between">
               <span>Employee + Spouse</span>
@@ -1206,8 +1206,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Employee + Children Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-slate-200 font-medium flex justify-between">
               <span>Employee + Children</span>
@@ -1244,8 +1244,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Family Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-white border-l border-b border-slate-200 font-medium flex justify-between">
               <span>Family</span>
@@ -1282,8 +1282,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Totals Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-slate-100 border-l border-b border-slate-200 font-medium">Totals</div>
             {columns.map(column => (
@@ -1302,8 +1302,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Total Annual Difference Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-slate-100 border-l border-b border-slate-200 font-medium text-slate-800">Total Annual Diff</div>
             {columns.map(column => {
@@ -1343,8 +1343,8 @@ const MedUHCTabWithColumns = forwardRef(({ initialData = null, onDataChange = ()
           {/* Total % Difference Row */}
           <div className="grid gap-4" style={{ 
             gridTemplateColumns: columns.filter(col => col.type === 'alternate').length >= 3 
-              ? `200px repeat(${columns.length}, 1fr)` 
-              : `200px repeat(${columns.length}, 1fr) 60px` 
+              ? `320px repeat(${columns.length}, 1fr)` 
+              : `320px repeat(${columns.length}, 1fr) 60px` 
           }}>
             <div className="pl-4 p-2 bg-slate-100 border-l border-b border-slate-200 font-medium text-slate-800">Total % Diff</div>
             {columns.map(column => {

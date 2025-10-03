@@ -73,8 +73,12 @@ const AppContent = () => {
   // Handle creating a new booklet
   const handleCreateBooklet = async (bookletData) => {
     try {
-      await createBooklet(bookletData);
-      setCurrentView('tabSelector');
+      const newBooklet = await createBooklet(bookletData);
+      // Skip tab selector and go directly to editor since tabs are already selected in modal
+      if (newBooklet?.metadata?.selectedTabs?.length > 0) {
+        setActiveTab(newBooklet.metadata.selectedTabs[0]);
+      }
+      setCurrentView('editor');
     } catch (error) {
       console.error('Error creating booklet:', error);
     }
@@ -232,9 +236,7 @@ const AppContent = () => {
   if (currentView === 'editor' && currentBooklet) {
     const selectedTabs = currentBooklet.metadata.selectedTabs;
     const tabs = [
-      { id: 'medUHC', label: 'Medical - Fully Insured' },
-      { id: 'medUHC2', label: 'Medical - Self Insured' },
-      { id: 'medUHCTrustmark', label: 'Med UHC Trustmark' },
+      { id: 'medUHC', label: 'Fully Funded' },
       { id: 'selfFunded', label: 'Self Funded' }
     ].filter(tab => selectedTabs.includes(tab.id));
 
@@ -348,7 +350,14 @@ const AppContent = () => {
           {activeTab === 'medUHC' && selectedTabs.includes('medUHC') && (
             <MedUHCTabWithColumns
               ref={medUHCTabRef}
-              initialData={currentBooklet.data.tabs.medUHC}
+              initialData={{
+                ...currentBooklet.data.tabs.medUHC,
+                planDetails: {
+                  ...currentBooklet.data.tabs.medUHC?.planDetails,
+                  organizationName: currentBooklet.data.sharedDetails?.organizationName || '',
+                  effectiveDate: currentBooklet.data.sharedDetails?.effectiveDate || ''
+                }
+              }}
               onDataChange={(data) => updateLocalTabData('medUHC', data)}
             />
           )}
@@ -369,7 +378,11 @@ const AppContent = () => {
           {activeTab === 'selfFunded' && selectedTabs.includes('selfFunded') && (
             <SelfFunded
               ref={selfFundedTabRef}
-              initialData={currentBooklet.data.tabs.selfFunded}
+              initialData={{
+                ...currentBooklet.data.tabs.selfFunded,
+                organizationName: currentBooklet.data.sharedDetails?.organizationName || '',
+                effectiveDate: currentBooklet.data.sharedDetails?.effectiveDate || ''
+              }}
               onDataChange={(data) => updateLocalTabData('selfFunded', data)}
             />
           )}

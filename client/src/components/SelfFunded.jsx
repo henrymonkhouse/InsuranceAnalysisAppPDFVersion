@@ -31,10 +31,8 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
 
   const [columns, setColumns] = useState(
     initialData?.columns || [
-      { id: 'option1', label: 'Option 1', carrier: 'United Healthcare Ins Co', network: 'Choice Plus' },
-      { id: 'option2', label: 'Option 2', carrier: 'United Healthcare Ins Co', network: 'Choice Plus' },
-      { id: 'option3', label: 'Option 3', carrier: 'Tokio Marine HCC', network: 'Choice Plus' },
-      { id: 'option4', label: 'Option 4', carrier: 'Tokio Marine HCC', network: 'Choice Plus' }
+      { id: 'option1', label: 'Option 1', type: 'base', carrier: 'United Healthcare Ins Co', network: 'Choice Plus' },
+      { id: 'option2', label: 'Option 2', type: 'base', carrier: 'United Healthcare Ins Co', network: 'Choice Plus' }
     ]
   )
 
@@ -72,38 +70,36 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
 
   const [specific, setSpecific] = useState(
     initialData?.specific || {
-      limit: { option1: 50000, option2: 75000, option3: 50000, option4: 75000 },
-      maxCoverage: { option1: 'Unlimited', option2: 'Unlimited', option3: 'Unlimited', option4: 'Unlimited' },
-      contract: { option1: '12/15', option2: '12/15', option3: '12/15', option4: '12/15' },
-      coverages: { option1: 'Med, Rx', option2: 'Med, Rx', option3: 'Med, Rx', option4: 'Med, Rx' },
-      noNewLaser: { option1: 'No', option2: 'No', option3: 'No', option4: 'No' }
+      limit: { option1: 50000, option2: 75000 },
+      maxCoverage: { option1: 'Unlimited', option2: 'Unlimited' },
+      contract: { option1: '12/15', option2: '12/15' },
+      coverages: { option1: 'Med, Rx', option2: 'Med, Rx' },
+      noNewLaser: { option1: 'No', option2: 'No' }
     }
   )
 
   const [aggregate, setAggregate] = useState(
     initialData?.aggregate || {
-      annualMax: { option1: 1000000, option2: 1000000, option3: 1000000, option4: 1000000 },
-      corridor: { option1: 120, option2: 120, option3: 120, option4: 120 },
-      contract: { option1: '12/15', option2: '12/15', option3: '12/15', option4: '12/15' },
-      coverages: { option1: 'Med, Rx', option2: 'Med, Rx', option3: 'Med, Rx', option4: 'Med, Rx' }
+      annualMax: { option1: 1000000, option2: 1000000 },
+      corridor: { option1: 120, option2: 120 },
+      contract: { option1: '12/15', option2: '12/15' },
+      coverages: { option1: 'Med, Rx', option2: 'Med, Rx' }
     }
   )
 
   const [premiums, setPremiums] = useState(
     initialData?.premiums || {
-      employee: { option1: 202.23, option2: 163.29, option3: 195.82, option4: 151.59 },
-      employeeSpouse: { option1: 350.0, option2: 449.06, option3: 451.47, option4: 365.72 },
-      employeeChildren: { option1: 425.0, option2: 449.06, option3: 451.47, option4: 365.72 },
-      family: { option1: 500.0, option2: 500.0, option3: 500.0, option4: 500.0 }
+      employee: { option1: 202.23, option2: 163.29 },
+      employeeSpouse: { option1: 350.0, option2: 449.06 },
+      employeeChildren: { option1: 425.0, option2: 449.06 },
+      family: { option1: 500.0, option2: 500.0 }
     }
   )
 
   const [aggregateRate, setAggregateRate] = useState(
     initialData?.aggregateRate || {
       option1: 21.69,
-      option2: 24.02,
-      option3: 13.94,
-      option4: 15.07
+      option2: 24.02
     }
   )
 
@@ -117,10 +113,10 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
 
   const [claimLiability, setClaimLiability] = useState(
     initialData?.claimLiability || {
-      employee: { option1: 469.27, option2: 527.67, option3: 478.62, option4: 560.79 },
-      employeeSpouse: { option1: 800.0, option2: 0, option3: 0, option4: 0 },
-      employeeChildren: { option1: 700.0, option2: 0, option3: 0, option4: 0 },
-      family: { option1: 1290.49, option2: 1454.09, option3: 1287.49, option4: 1462.44 }
+      employee: { option1: 469.27, option2: 527.67 },
+      employeeSpouse: { option1: 800.0, option2: 0 },
+      employeeChildren: { option1: 700.0, option2: 0 },
+      family: { option1: 1290.49, option2: 1454.09 }
     }
   )
 
@@ -183,10 +179,9 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
       const annualAdminCosts = adminPerMember * aggMembers * 12
       const annualFixedCost = totalAnnualPremium + annualAdminCosts
 
+      // Excel formula: (D49*C49*12)+(D52*C52*12) - Only Employee and Family
       const annualMaxClaimLiability =
         (claimLiability.employee[id] || 0) * (counts.employee || 0) * 12 +
-        (claimLiability.employeeSpouse[id] || 0) * (counts.employeeSpouse || 0) * 12 +
-        (claimLiability.employeeChildren[id] || 0) * (counts.employeeChildren || 0) * 12 +
         (claimLiability.family[id] || 0) * (counts.family || 0) * 12
 
       const expectedClaimLiability = annualMaxClaimLiability * expectedClaimFactor
@@ -206,20 +201,24 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
       }
     })
 
-    const base = out.option1?.annualExpectedCost || 0
+    // Excel formula: =E60/$D$60-100% (uses Annual Maximum Plan Cost, not Expected)
+    const baseMaxCost = out.option1?.annualMaxCost || 0
     columns.forEach(col => {
       const id = col.id
-      const val = out[id]?.annualExpectedCost || 0
-      out[id].expectedIncreasePercent = base ? ((val - base) / base) * 100 : 0
-      out[id].expectedIncreaseDollar = val - base
+      const maxCost = out[id]?.annualMaxCost || 0
+      out[id].expectedIncreasePercent = baseMaxCost ? ((maxCost / baseMaxCost) - 1) * 100 : 0
+      out[id].expectedIncreaseDollar = maxCost - baseMaxCost
     })
 
     return out
   }, [columns, counts, premiums, aggregateRate, adminCosts, claimLiability, expectedClaimFactor, composite])
 
-  const gridCols = () => ({
-    gridTemplateColumns: `320px repeat(${columns.length}, 1fr)`
-  })
+  const gridCols = () => {
+    const alternateCount = columns.filter(col => col.type === 'alternate').length;
+    return alternateCount >= 3
+      ? { gridTemplateColumns: `320px repeat(${columns.length}, 1fr)` }
+      : { gridTemplateColumns: `320px repeat(${columns.length}, 1fr) 60px` };
+  }
 
   const updateCount = (field, value) =>
     setCounts(prev => ({ ...prev, [field]: parseInt(value, 10) || 0 }))
@@ -277,15 +276,60 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
         <div className="grid gap-4 mb-2" style={gridCols()}>
           <div></div>
           {columns.map(col => (
-            <div key={col.id} className="p-3 rounded-t-lg font-medium text-center bg-indigo-700 text-white">
-              <input
-                type="text"
-                value={col.label}
-                onChange={e => updateColumn(col.id, 'label', e.target.value)}
-                className="w-full bg-transparent border-none text-center font-semibold focus:outline-none focus:ring-1 focus:ring-white rounded px-1 text-sm mb-1"
-              />
+            <div key={col.id} className={`p-3 rounded-t-lg font-medium text-center ${
+              col.type === 'base' ? 'bg-indigo-700 text-white' : 'bg-gray-600 text-white'
+            }`}>
+              {col.type === 'base' ? (
+                <input
+                  type="text"
+                  value={col.label}
+                  onChange={e => updateColumn(col.id, 'label', e.target.value)}
+                  className="w-full bg-transparent border-none text-center font-semibold focus:outline-none focus:ring-1 focus:ring-white rounded px-1 text-sm mb-1"
+                />
+              ) : (
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <input
+                      type="text"
+                      value={col.label}
+                      onChange={e => updateColumn(col.id, 'label', e.target.value)}
+                      className="w-full bg-transparent border-none text-center font-semibold focus:outline-none focus:ring-1 focus:ring-white rounded px-1 text-sm mb-1"
+                    />
+                  </div>
+                  <button
+                    onClick={() => setColumns(prev => prev.filter(c => c.id !== col.id))}
+                    className="ml-2 text-white hover:text-red-200 text-sm"
+                    title="Remove Column"
+                  >
+                    ✕
+                  </button>
+                </div>
+              )}
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && (
+            <div className="flex items-end justify-center">
+              <button
+                onClick={() => {
+                  const alternateCount = columns.filter(col => col.type === 'alternate').length;
+                  const newColumn = {
+                    id: `option${columns.length + 1}`,
+                    label: `Option ${columns.length + 1}`,
+                    type: 'alternate',
+                    carrier: 'United Healthcare Ins Co',
+                    network: 'Choice Plus'
+                  };
+                  setColumns(prev => [...prev, newColumn]);
+                }}
+                className="w-12 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full flex items-center justify-center shadow-lg transition-colors"
+                title="Add Column"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -300,6 +344,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               />
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4 mt-2" style={gridCols()}>
@@ -314,11 +359,13 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               />
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4 mt-4" style={gridCols()}>
           <div className="bg-sky-600 text-white p-2 font-medium">SPECIFIC</div>
           {columns.map(col => <div key={`spacer-spec-${col.id}`}></div>)}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -336,6 +383,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -345,6 +393,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               {specific.maxCoverage[col.id]}
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -355,6 +404,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               {specific.contract[col.id]}
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -364,6 +414,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               {specific.coverages[col.id]}
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -373,11 +424,13 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               {specific.noNewLaser[col.id]}
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4 mt-4" style={gridCols()}>
           <div className="bg-sky-600 text-white p-2 font-medium">AGGREGATE</div>
           {columns.map(col => <div key={`spacer-agg-${col.id}`}></div>)}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -395,6 +448,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -412,6 +466,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -429,6 +484,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -443,6 +499,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               />
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -452,6 +509,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               Not Included
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -461,11 +519,13 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               Not Included
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4 mt-4" style={gridCols()}>
           <div className="bg-green-600 text-white p-2 font-medium">STOP LOSS PREMIUM (Fixed)</div>
           {columns.map(col => <div key={`spacer-prem-${col.id}`}></div>)}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         {TIERS.map(tier => (
@@ -494,6 +554,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
                 </div>
               </div>
             ))}
+            {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
           </div>
         ))}
 
@@ -506,6 +567,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -537,6 +599,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -548,6 +611,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -559,11 +623,13 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4 mt-4" style={gridCols()}>
           <div className="bg-purple-600 text-white p-2 font-medium">ADMINISTRATIVE COSTS (Fixed)</div>
           {columns.map(col => <div key={`spacer-admin-${col.id}`}></div>)}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -592,6 +658,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -620,6 +687,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -648,6 +716,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -659,6 +728,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -670,16 +740,19 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4 mt-4" style={gridCols()}>
           <div className="bg-red-600 text-white p-2 font-medium">AGGREGATE CLAIM LIABILITY</div>
           {columns.map(col => <div key={`spacer-claim-${col.id}`}></div>)}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
           <div className="pl-4 p-2 bg-red-100 text-red-800 font-medium">Med. Rx</div>
           {columns.map(col => <div key={col.id} className="bg-red-50"></div>)}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         {claimTiers.map(tier => (
@@ -709,6 +782,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
                 </div>
               </div>
             ))}
+            {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
           </div>
         ))}
 
@@ -721,6 +795,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -734,11 +809,13 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4 mt-6" style={gridCols()}>
           <div className="bg-indigo-700 text-white p-2 font-medium">FINANCIAL SUMMARY</div>
           {columns.map(col => <div key={`spacer-fin-${col.id}`}></div>)}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -750,6 +827,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -761,6 +839,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             </div>
           ))}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -781,6 +860,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             )
           })}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="grid gap-4" style={gridCols()}>
@@ -801,6 +881,7 @@ const SelfFunded = forwardRef(({ initialData = null, onDataChange = () => {} }, 
               </div>
             )
           })}
+          {columns.filter(col => col.type === 'alternate').length < 3 && <div></div>}
         </div>
 
         <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded">

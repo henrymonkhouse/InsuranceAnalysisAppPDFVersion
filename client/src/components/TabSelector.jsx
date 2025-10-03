@@ -1,17 +1,8 @@
 import React, { useState } from 'react';
 
 const AVAILABLE_TABS = [
-  { id: 'medUHC', label: 'Med UHC', description: 'Medical UHC Plan Details', icon: '🏥' },
-  { id: 'medUHC2', label: 'Med UHC 2', description: 'Medical UHC Alternative Plan', icon: '🏥' },
-  { id: 'medUHCTrustmark', label: 'Med UHC Trustmark', description: 'Medical UHC Trustmark Plan', icon: '🏥' },
   { id: 'selfFunded', label: 'Self Funded', description: 'Self Funded Analysis', icon: '📊' },
-  // Future tabs - grayed out for now
-  { id: 'std', label: 'STD', description: 'Short Term Disability', icon: '📋', disabled: true },
-  { id: 'ltd', label: 'LTD', description: 'Long Term Disability', icon: '📄', disabled: true },
-  { id: 'accident', label: 'Accident', description: 'Accident Insurance', icon: '🚑', disabled: true },
-  { id: 'criticalIllness', label: 'Critical Illness', description: 'Critical Illness Coverage', icon: '❤️', disabled: true },
-  { id: 'hospital', label: 'Hospital', description: 'Hospital Indemnity', icon: '🏨', disabled: true },
-  { id: 'hsaFsa', label: 'HSA/FSA', description: 'Health Savings/Flexible Spending', icon: '💰', disabled: true },
+  { id: 'medUHC', label: 'Fully Funded', description: 'Fully Funded Analysis', icon: '🏥' },
 ];
 
 const TabSelector = ({ selectedTabs = [], onTabsSelected, onContinue, bookletName }) => {
